@@ -15,8 +15,23 @@
 * **🔗 大模型无缝联动**：基于 `LangChain` 框架的 `RetrievalQA` 链，无缝对接 `DeepSeek-V3` (通过硅基流动 API)，并辅以严苛的 System Prompt 约束，确保回答 100% 忠于本地知识库。
 
 ## 架构概览
-*(注：请在此处插入一张项目架构图。推荐使用 Draw.io 或 ProcessOn 绘制)*
-![系统架构图](此处替换为你的图片链接,例如: ./docs/architecture.png)
+
+```mermaid
+graph TD
+    A[📄 本地长文档] -->|解析| B(文本清洗 docx2txt)
+    B --> C{智能切片 TextSplitter}
+    C -->|Chunk| D[向量化 BAAI/bge-m3]
+    D --> E[(本地 ChromaDB 向量库)]
+    
+    F[👤 用户提问 Query] --> G[相似度检索 Top-K]
+    E -.->|提供高维向量| G
+    G -->|召回相关上下文| H(组装 System Prompt)
+    H --> I[🧠 大模型 DeepSeek-V3]
+    I --> J((✨ 输出精准回答))
+    
+    classDef default fill:#f9f9f9,stroke:#333,stroke-width:2px;
+    classDef database fill:#e1f5fe,stroke:#03a9f4,stroke-width:2px;
+    class E database;
 > **数据流向说明：** 本地文档 -> 文本清洗与分块 -> bge-m3 向量化 -> ChromaDB 存储 -> 用户 Query -> 相似度检索 -> 组装 Prompt -> DeepSeek-V3 推理 -> 输出精准回答。
 
 ## 🛠️ 技术栈
