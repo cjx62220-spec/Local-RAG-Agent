@@ -32,7 +32,6 @@ graph TD
     classDef default fill:#f9f9f9,stroke:#333,stroke-width:2px;
     classDef database fill:#e1f5fe,stroke:#03a9f4,stroke-width:2px;
     class E database;
-> **数据流向说明：** 本地文档 -> 文本清洗与分块 -> bge-m3 向量化 -> ChromaDB 存储 -> 用户 Query -> 相似度检索 -> 组装 Prompt -> DeepSeek-V3 推理 -> 输出精准回答。
 
 ## 🛠️ 技术栈
 * **核心语言**: Python
