@@ -32,26 +32,3 @@ graph TD
     classDef default fill:#f9f9f9,stroke:#333,stroke-width:2px;
     classDef database fill:#e1f5fe,stroke:#03a9f4,stroke-width:2px;
     class E database;
-
-## 🛠️ 技术栈
-* **核心语言**: Python
-* **大模型/API**: DeepSeek-V3, 硅基流动 (SiliconFlow) API
-* **AI 编排框架**: LangChain
-* **向量数据库**: ChromaDB (本地持久化部署)
-* **Embedding 模型**: BAAI/bge-m3
-* **前端交互**: Vue.js (构建流式输出的问答交互界面)
-
-## 🚀 快速启动
-
-### 1. 环境准备
-```bash
-# 克隆仓库
-git clone [https://github.com/YourUsername/Local-RAG-Agent.git](https://github.com/YourUsername/Local-RAG-Agent.git)
-cd Local-RAG-Agent
-
-# 推荐使用 conda 或 venv 创建虚拟环境以隔离依赖
-python -m venv venv
-source venv/bin/activate  # Windows 用户请使用 venv\Scripts\activate
-
-# 安装依赖
-pip install -r requirements.txt
